@@ -21,6 +21,56 @@ public class KeywordsDetector {
     // Iterates through all the sentences.
     // If a sentence contains one or more of the kewords, prints it.
     public static void detectAndPrint(String[] sentences, String[] keywords) {
-        // Replace this comment with your code
+       // compare every sentence with every keyword
+        for (int i = 0; i < sentences.length; i++) {
+            for (int j = 0; j < keywords.length; j++) { 
+                // if the lowercase string comparing is true print the sentence
+                if (contains(lowerCase(sentences[i]), lowerCase(keywords[j]))) { 
+                    System.out.println(sentences[i]);
+                }
+            }
+        }
+        
+    }
+
+  /** Returns the lowercase version of the given string. */
+    public static String lowerCase(String str) {
+        String lowerString = "";
+        for (int i = 0; i < str.length(); i++) {
+            char ch = str.charAt(i);
+            if (ch >= 'A' && ch <= 'Z') {
+                lowerString += (char) (ch + 32);
+            } else {
+                lowerString += ch;
+            }
+        }
+        return lowerString;
+    }
+
+    /** If str1 contains str2, returns true; otherwise returns false. */
+    public static boolean contains(String str1, String str2) {
+        // edge cases
+        if (str2.length() == 0) {
+            return true;
+        } 
+        if (str1.length() < str2.length()) {
+            return false;
+        }
+        // finds str2 in sr1
+        for (int i = 0; i <= str1.length() - str2.length(); i ++) {
+            boolean matchingIndex = true;
+            for (int j = 0; j < str2.length(); j++) {
+                if (str1.charAt(i + j) != str2.charAt(j)) {
+                    matchingIndex = false;
+                    break;
+                } 
+            }
+            if (matchingIndex) {
+                return true;     
+            }
+        }     
+        return false;
     }
 }
+  
+
