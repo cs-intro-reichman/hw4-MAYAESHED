@@ -24,7 +24,8 @@ public class KeywordsDetector {
        // compare every sentence with every keyword
         for (int i = 0; i < sentences.length; i++) {
             for (int j = 0; j < keywords.length; j++) { 
-                if (contains(lowerCase(sentences[i]), lowerCase(keywords[j]))) { // if the lowercase string comparing is true
+                // if the lowercase string comparing is true print the sentence
+                if (contains(lowerCase(sentences[i]), lowerCase(keywords[j]))) { 
                     System.out.println(sentences[i]);
                 }
             }
