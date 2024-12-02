@@ -15,8 +15,7 @@ public class Primes {
                 while (multiple <= N) {
                     if (primeArray[multiple]) {
                         primeArray[multiple] = false;
-                        count --; // Reduce count of primes for the percentage calc
-                        
+                        count --; // Reduce count of primes for the percentage calc                       
                     }
                     multiple += p;
                 }
